@@ -6,7 +6,7 @@ import buildingBanner2 from '../assets/images/welcomeBanner2.jpg';
 import buildingBanner3 from '../assets/images/welcomeBanner3.jpg';
 import buildingBanner4 from '../assets/images/welcomeBanner4.jpg';
 import { Link } from 'react-router-dom';
-import styles from '../styles/Welcome.module.scss';
+import styles from './styles/Welcome.module.scss';
 
 function WelcomeBanner() {
    const [isSliding, setSliding] = useState(false);
