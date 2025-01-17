@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import logo from '../assets/logos/logo.png';
-import logo2 from '../assets/logos/logo-w-bg.png';
+import logo2 from '../assets/logos/logo-big-wo-bg.png';
+
 import styles from './styles/Header.module.scss';
 
 function Header() {
@@ -79,7 +80,7 @@ function Header() {
         <Link to="/" className={styles.logo}>
           <img src={isFixed ? logo2 : logo} alt="logo" />
         </Link>
-
+        <span className={styles.agencyName}>Nicolagency</span>
         <nav className={styles.navBar}>
           <div className={styles.navItem}>
             <NavLink

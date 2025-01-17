@@ -12,9 +12,37 @@
        background: rgba(255, 255, 255, 0.95);
  
        & .logo {
-          height: 37px;
-          margin-top: 0;
+         display: flex;
+         align-items: center;
+         height: 48px;
+         transition: var(--standard-duration) ease-in-out;
+       
+         & > img {
+           display: block;
+           height: 100%;
+         }
+       
+         & > .agencyName {
+            font-size: 1.5rem; 
+            font-weight: 300; 
+            font-family: 'Maulidah Script', sans-serif; 
+            margin-left: 10px; 
+            display: inline-block;
+            vertical-align: middle;
+       
+           // Adjust styles for smaller screens
+           @media (max-width: 990px) {
+             font-size: 1.2rem;
+           }
+         }
+       
+         // Tablet view
+         @media (max-width: 990px) {
+           height: 37px;
+           margin-top: 0;
+         }
        }
+       
  
        & .navItem {
           padding: 18px 3px;
