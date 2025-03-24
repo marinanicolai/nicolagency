@@ -3,7 +3,7 @@ import React from 'react'
 const RecentPosts = () => {
   return (
     <div>
-      <p>recent posts</p>
+      <p></p>
     </div>
   )
 }

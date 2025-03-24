@@ -3,7 +3,7 @@ import React from 'react'
 const TopCategories = () => {
   return (
     <div>
-      <p>top categories</p>
+      <p></p>
     </div>
   )
 }

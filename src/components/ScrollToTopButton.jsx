@@ -3,7 +3,7 @@ import React from 'react'
 const ScrollToTopButton = () => {
   return (
     <div>
-      <p>scroll</p>
+      <p></p>
     </div>
   )
 }

@@ -3,7 +3,7 @@ import React from 'react'
 const EditorPickedNews = () => {
   return (
     <div>
-      <p>Editor picked news</p>
+      <p></p>
     </div>
   )
 }

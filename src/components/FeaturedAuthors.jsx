@@ -3,7 +3,7 @@ import React from 'react'
 const FeaturedAuthors = () => {
   return (
     <div>
-      <p>Featured authors</p>
+      <p></p>
     </div>
   )
 }
