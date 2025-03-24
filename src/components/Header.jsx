@@ -9,21 +9,22 @@ import styles from './styles/Header.module.scss';
 
 function Header() {
   const location = useLocation();
-  const aboutUsActive = location.pathname === '/about';
-  const teamActive = location.pathname === '/team';
-
   const headerRef = useRef(null);
   const [isFixed, setFixed] = useState(false);
-  const menuPanelRef1 = useRef(null); // About submenu
-  const menuPanelRef2 = useRef(null); // Services submenu
+
+  // Refs for dropdown panels
+  const menuPanelRef1 = useRef(null); // About
+  const menuPanelRef2 = useRef(null); // Services
+  const menuPanelRef3 = useRef(null); // Blog
 
   const timeout1 = useRef(undefined);
   const timeout2 = useRef(undefined);
+  const timeout3 = useRef(undefined);
 
   const [openSearch, setOpenSearch] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
 
-  // Show "About" panel
+  // ABOUT handlers
   const handleShowMenuPanel1 = useCallback(() => {
     clearTimeout(timeout1.current);
     if (menuPanelRef1.current) {
@@ -47,7 +48,7 @@ function Header() {
     }
   }, []);
 
-  // Show "Services" panel
+  // SERVICES handlers
   const handleShowMenuPanel2 = useCallback(() => {
     clearTimeout(timeout2.current);
     if (menuPanelRef2.current) {
@@ -71,6 +72,30 @@ function Header() {
     }
   }, []);
 
+  // BLOG handlers
+  const handleShowMenuPanel3 = useCallback(() => {
+    clearTimeout(timeout3.current);
+    if (menuPanelRef3.current) {
+      menuPanelRef3.current.style.display = 'block';
+      setTimeout(() => {
+        menuPanelRef3.current.style.opacity = 1;
+        menuPanelRef3.current.style.transform = 'translateY(0)';
+      }, 0);
+    }
+  }, []);
+
+  const handleHideMenuPanel3 = useCallback(() => {
+    if (menuPanelRef3.current) {
+      menuPanelRef3.current.style.opacity = 0;
+      menuPanelRef3.current.style.transform = 'translateY(30px)';
+      timeout3.current = setTimeout(() => {
+        if (menuPanelRef3.current) {
+          menuPanelRef3.current.style.display = 'none';
+        }
+      }, 310);
+    }
+  }, []);
+
   // Search modal toggle
   const handleShowSearchModal = useCallback(() => {
     if (!openSearch) {
@@ -82,7 +107,7 @@ function Header() {
     }
   }, [openSearch]);
 
-  // Fixed header on scroll
+  // Sticky header
   const handleScroll = useCallback(() => {
     const position = window.scrollY || window.pageYOffset;
     if (position > 0 && !isFixed) {
@@ -108,28 +133,24 @@ function Header() {
         </Link>
         <span className={styles.agencyName}>Nicolagency</span>
         <nav className={styles.navBar}>
+
+          {/* HOME */}
           <div className={styles.navItem}>
-            <NavLink to="/" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>
-              Home
-            </NavLink>
+            <NavLink to="/" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>Home</NavLink>
           </div>
 
-          {/* About */}
+          {/* ABOUT */}
           <div className={styles.navItem} onMouseOver={handleShowMenuPanel1} onMouseLeave={handleHideMenuPanel1}>
-            <NavLink to="/about" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>
-              About
-            </NavLink>
+            <NavLink to="/about" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>About</NavLink>
             <div className={styles.menuPanel} ref={menuPanelRef1}>
               <NavLink to="/about" className={styles.menuPanelItem}>About Us</NavLink>
               <NavLink to="/team" className={styles.menuPanelItem}>Our Team</NavLink>
             </div>
           </div>
 
-          {/* Services */}
+          {/* SERVICES */}
           <div className={styles.navItem} onMouseOver={handleShowMenuPanel2} onMouseLeave={handleHideMenuPanel2}>
-            <NavLink to="/services" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>
-              Services
-            </NavLink>
+            <NavLink to="/services" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>Services</NavLink>
             <div className={styles.menuPanel} ref={menuPanelRef2}>
               <NavLink to="/website" className={styles.menuPanelItem}>Building Website</NavLink>
               <NavLink to="/design" className={styles.menuPanelItem}>Designing Website</NavLink>
@@ -137,20 +158,19 @@ function Header() {
             </div>
           </div>
 
-          <div className={styles.navItem}>
-            <NavLink to="/portfolio" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>
-              Portfolio
-            </NavLink>
+          {/* BLOG */}
+          <div className={styles.navItem} onMouseOver={handleShowMenuPanel3} onMouseLeave={handleHideMenuPanel3}>
+            <NavLink to="/blog" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>Blog</NavLink>
+            <div className={styles.menuPanel} ref={menuPanelRef3}>
+              <NavLink to="/news" className={styles.menuPanelItem}>News</NavLink>
+              <NavLink to="/articles" className={styles.menuPanelItem}>Articles</NavLink>
+              <NavLink to="/guides" className={styles.menuPanelItem}>Guides</NavLink>
+            </div>
           </div>
+
+          {/* CONTACT */}
           <div className={styles.navItem}>
-            <NavLink to="/blog" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>
-              Blog
-            </NavLink>
-          </div>
-          <div className={styles.navItem}>
-            <NavLink to="/contact" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>
-              Contact
-            </NavLink>
+            <NavLink to="/contact" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>Contact</NavLink>
           </div>
 
           {/* Search Icon */}
