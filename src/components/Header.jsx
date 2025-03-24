@@ -1,4 +1,4 @@
-import { faBars, faChevronRight, faSearch, faX } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faSearch, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
@@ -14,36 +14,64 @@ function Header() {
 
   const headerRef = useRef(null);
   const [isFixed, setFixed] = useState(false);
-  const menuPanelRef1 = useRef(null);
+  const menuPanelRef1 = useRef(null); // About submenu
+  const menuPanelRef2 = useRef(null); // Services submenu
 
   const timeout1 = useRef(undefined);
+  const timeout2 = useRef(undefined);
 
   const [openSearch, setOpenSearch] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
-  const [openAboutCollapse, setOpenAboutCollapse] = useState(false);
 
-  // Show menu panel "about"
+  // Show "About" panel
   const handleShowMenuPanel1 = useCallback(() => {
     clearTimeout(timeout1.current);
-    menuPanelRef1.current.style.display = 'block';
-
-    setTimeout(() => {
-      menuPanelRef1.current.style.opacity = 1;
-      menuPanelRef1.current.style.transform = 'translateY(0)';
-    }, 0);
+    if (menuPanelRef1.current) {
+      menuPanelRef1.current.style.display = 'block';
+      setTimeout(() => {
+        menuPanelRef1.current.style.opacity = 1;
+        menuPanelRef1.current.style.transform = 'translateY(0)';
+      }, 0);
+    }
   }, []);
 
-  // Hide menu panel "about"
   const handleHideMenuPanel1 = useCallback(() => {
-    menuPanelRef1.current.style.opacity = 0;
-    menuPanelRef1.current.style.transform = 'translateY(30px)';
-
-    timeout1.current = setTimeout(() => {
-      menuPanelRef1.current.style.display = 'none';
-    }, 310); // transition duration: 0.3s
+    if (menuPanelRef1.current) {
+      menuPanelRef1.current.style.opacity = 0;
+      menuPanelRef1.current.style.transform = 'translateY(30px)';
+      timeout1.current = setTimeout(() => {
+        if (menuPanelRef1.current) {
+          menuPanelRef1.current.style.display = 'none';
+        }
+      }, 310);
+    }
   }, []);
 
-  // Show search modal
+  // Show "Services" panel
+  const handleShowMenuPanel2 = useCallback(() => {
+    clearTimeout(timeout2.current);
+    if (menuPanelRef2.current) {
+      menuPanelRef2.current.style.display = 'block';
+      setTimeout(() => {
+        menuPanelRef2.current.style.opacity = 1;
+        menuPanelRef2.current.style.transform = 'translateY(0)';
+      }, 0);
+    }
+  }, []);
+
+  const handleHideMenuPanel2 = useCallback(() => {
+    if (menuPanelRef2.current) {
+      menuPanelRef2.current.style.opacity = 0;
+      menuPanelRef2.current.style.transform = 'translateY(30px)';
+      timeout2.current = setTimeout(() => {
+        if (menuPanelRef2.current) {
+          menuPanelRef2.current.style.display = 'none';
+        }
+      }, 310);
+    }
+  }, []);
+
+  // Search modal toggle
   const handleShowSearchModal = useCallback(() => {
     if (!openSearch) {
       setOpenSearch(true);
@@ -57,7 +85,6 @@ function Header() {
   // Fixed header on scroll
   const handleScroll = useCallback(() => {
     const position = window.scrollY || window.pageYOffset;
-
     if (position > 0 && !isFixed) {
       setFixed(true);
     } else if (position <= 0 && isFixed) {
@@ -68,7 +95,6 @@ function Header() {
   useEffect(() => {
     handleScroll();
     window.addEventListener('scroll', handleScroll);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -83,78 +109,57 @@ function Header() {
         <span className={styles.agencyName}>Nicolagency</span>
         <nav className={styles.navBar}>
           <div className={styles.navItem}>
-            <NavLink
-              to="/"
-              className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}
-            >
+            <NavLink to="/" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>
               Home
             </NavLink>
           </div>
-          <div
-            className={styles.navItem}
-            onMouseOver={handleShowMenuPanel1}
-            onMouseLeave={handleHideMenuPanel1}
-          >
-            <NavLink
-              to="/about"
-              className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}
-            >
+
+          {/* About */}
+          <div className={styles.navItem} onMouseOver={handleShowMenuPanel1} onMouseLeave={handleHideMenuPanel1}>
+            <NavLink to="/about" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>
               About
             </NavLink>
-
             <div className={styles.menuPanel} ref={menuPanelRef1}>
-              <NavLink
-                to="/about"
-                className={`${styles.menuPanelItem} ${aboutUsActive ? styles.active : ''}`}
-              >
-                About Us
-              </NavLink>
-              <NavLink
-                to="/team"
-                className={`${styles.menuPanelItem} ${teamActive ? styles.active : ''}`}
-              >
-                Our Team
-              </NavLink>
+              <NavLink to="/about" className={styles.menuPanelItem}>About Us</NavLink>
+              <NavLink to="/team" className={styles.menuPanelItem}>Our Team</NavLink>
             </div>
           </div>
-          <div className={styles.navItem}>
-            <NavLink
-              to="/services"
-              className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}
-            >
+
+          {/* Services */}
+          <div className={styles.navItem} onMouseOver={handleShowMenuPanel2} onMouseLeave={handleHideMenuPanel2}>
+            <NavLink to="/services" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>
               Services
             </NavLink>
+            <div className={styles.menuPanel} ref={menuPanelRef2}>
+              <NavLink to="/website" className={styles.menuPanelItem}>Building Website</NavLink>
+              <NavLink to="/design" className={styles.menuPanelItem}>Designing Website</NavLink>
+              <NavLink to="/content" className={styles.menuPanelItem}>Creating Social Media Content</NavLink>
+            </div>
           </div>
+
           <div className={styles.navItem}>
-            <NavLink
-              to="/portfolio"
-              className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}
-            >
+            <NavLink to="/portfolio" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>
               Portfolio
             </NavLink>
           </div>
           <div className={styles.navItem}>
-            <NavLink
-              to="/blog"
-              className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}
-            >
+            <NavLink to="/blog" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>
               Blog
             </NavLink>
           </div>
           <div className={styles.navItem}>
-            <NavLink
-              to="/contact"
-              className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}
-            >
+            <NavLink to="/contact" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>
               Contact
             </NavLink>
           </div>
 
+          {/* Search Icon */}
           <div className={`${styles.navItem} ${styles.searchIcon}`} onClick={handleShowSearchModal}>
             <FontAwesomeIcon icon={openSearch ? faX : faSearch} />
           </div>
         </nav>
 
+        {/* Mobile Menu Button */}
         <button className={styles.menuBtn} onClick={() => setOpenMenu(!openMenu)}>
           <FontAwesomeIcon icon={faBars} />
         </button>
@@ -169,61 +174,18 @@ function Header() {
           </div>
         </div>
 
-        {/* Menu Modal */}
+        {/* Mobile Menu Modal */}
         <div className={`${styles.menuModal} ${openMenu ? styles.open : ''}`}>
           <button className={styles.closeMenuBtn} onClick={() => setOpenMenu(!openMenu)}>
             <FontAwesomeIcon icon={faX} />
           </button>
-
           <div className={styles.navMenu}>
-            <div className={styles.navMenuItem}>
-              <NavLink
-                to="/"
-                className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}
-              >
-                Home
-              </NavLink>
-            </div>
-            <div className={styles.navMenuItem}>
-              <NavLink
-                to="/about"
-                className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}
-              >
-                About
-              </NavLink>
-            </div>
-            <div className={styles.navMenuItem}>
-              <NavLink
-                to="/services"
-                className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}
-              >
-                Services
-              </NavLink>
-            </div>
-            <div className={styles.navMenuItem}>
-              <NavLink
-                to="/portfolio"
-                className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}
-              >
-                Portfolio
-              </NavLink>
-            </div>
-            <div className={styles.navMenuItem}>
-              <NavLink
-                to="/blog"
-                className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}
-              >
-                Blog
-              </NavLink>
-            </div>
-            <div className={styles.navMenuItem}>
-              <NavLink
-                to="/contact"
-                className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}
-              >
-                Contact
-              </NavLink>
-            </div>
+            <NavLink to="/" className={styles.navMenuItem}>Home</NavLink>
+            <NavLink to="/about" className={styles.navMenuItem}>About</NavLink>
+            <NavLink to="/services" className={styles.navMenuItem}>Services</NavLink>
+            <NavLink to="/portfolio" className={styles.navMenuItem}>Portfolio</NavLink>
+            <NavLink to="/blog" className={styles.navMenuItem}>Blog</NavLink>
+            <NavLink to="/contact" className={styles.navMenuItem}>Contact</NavLink>
           </div>
         </div>
       </div>
