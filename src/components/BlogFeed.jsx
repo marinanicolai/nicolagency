@@ -1,68 +1,89 @@
-import React, { useCallback, useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
+import React, { memo, useCallback, useEffect, useRef } from 'react'
+import { useSelector } from 'react-redux'
+import BlogQuote from './BlogQuote'
+import BlogType1 from './BlogType1'
+import BlogType2 from './BlogType2'
+import styles from './styles/BlogFeed.module.scss'
 
-function BlogFeed({ blogFeedType2 = false }) {
-  const { blogs = [], blogFeed = [], blogFeed2 = [] } = useSelector((state) => state.blogs || {});
+function BlogFeed({ blogFeedType2, style }) {
+   const { blogs, blogFeed, blogFeed2 } = useSelector(state => state.blogs)
+   const data = blogFeedType2
+      ? blogFeed2.map(blog => ({
+           ...blogs.find(e => e.id === blog.blogId),
+           ...blog,
+        }))
+      : blogFeed.map(blog => ({
+           ...blogs.find(e => e.id === blog.blogId),
+           ...blog,
+        }))
 
-  const data = blogFeedType2
-    ? blogFeed2.map((blog) => {
-        const blogData = blogs.find((e) => e.id === blog.blogId);
-        return blogData ? { ...blogData, ...blog } : null;
-      }).filter(Boolean)
-    : blogFeed.map((blog) => {
-        const blogData = blogs.find((e) => e.id === blog.blogId);
-        return blogData ? { ...blogData, ...blog } : null;
-      }).filter(Boolean);
+   const container1Ref = useRef(null)
+   const container2Ref = useRef(null)
 
-  const container1Ref = useRef(null);
-  const container2Ref = useRef(null);
+   // appear animation on scroll
+   const handleScroll = useCallback(() => {
+      if (container1Ref.current && container2Ref.current) {
+         const elements = [...container1Ref.current.children, ...container2Ref.current.children]
 
-  const handleScroll = useCallback(() => {
-    if (!container1Ref.current || !container2Ref.current) return;
+         elements.forEach(e => {
+            const top = e.getBoundingClientRect().top
+            const bottom = e.getBoundingClientRect().bottom
 
-    const elements = [...container1Ref.current.children, ...container2Ref.current.children];
+            if (top < window.innerHeight && bottom > 0) {
+               e.classList.add('floatUp')
+               e.classList.add(styles.appeared)
+            }
+         })
 
-    let allAppeared = true;
+         // remove event when all are appeared
+         let countAppeared = 0
+         elements.forEach(e => {
+            if (e.className.includes(styles.appeared)) {
+               countAppeared++
+            }
+         })
 
-    elements.forEach((e) => {
-      const { top, bottom } = e.getBoundingClientRect();
-      if (top < window.innerHeight && bottom > 0) {
-        e.classList.add('floatUp');
-        e.classList.add('appeared');
+         if (countAppeared === elements.length) {
+            console.log('remove---BlogFeed')
+            window.removeEventListener('scroll', handleScroll)
+         }
       }
-      if (!e.classList.contains('appeared')) {
-        allAppeared = false;
+   }, [])
+
+   // appear on scroll
+   useEffect(() => {
+      handleScroll()
+      window.addEventListener('scroll', handleScroll)
+
+      return () => {
+         window.removeEventListener('scroll', handleScroll)
       }
-    });
+   }, [handleScroll])
 
-    if (allAppeared) {
-      console.log('remove---BlogFeed');
-      window.removeEventListener('scroll', handleScroll);
-    }
-  }, []);
+   return (
+      <section className={`${styles.BlogFeed}`} style={style}>
+         <div className={`${styles.container} container`}>
+            <div
+               className={`${styles.container1} ${blogFeedType2 ? styles.blogFeed2 : ''}`}
+               ref={container1Ref}
+            >
+               {data.map((blog, index) => {
+                  if (blog.type === 1) {
+                     return <BlogType1 myArea={index === 0} data={blog} key={blog.id} />
+                  } else if (blog.type === 3) {
+                     return <BlogQuote data={blog} key={blog.id} />
+                  } else {
+                     return null
+                  }
+               })}
+            </div>
 
-  useEffect(() => {
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [handleScroll]);
-
-  return (
-    <section style={{ padding: '40px 0' }}>
-      <div ref={container1Ref}>
-        {data.map((blog) => (
-          <div key={blog.id} className="blog-item">
-            {blog.title}
-          </div>
-        ))}
-      </div>
-      <div ref={container2Ref}>
-        {/* Optional: put additional content here */}
-      </div>
-    </section>
-  );
+            <div className={styles.container2} ref={container2Ref}>
+               {data.map(blog => blog.type === 2 && <BlogType2 data={blog} key={blog.id} />)}
+            </div>
+         </div>
+      </section>
+   )
 }
 
-export default BlogFeed;
+export default memo(BlogFeed)
