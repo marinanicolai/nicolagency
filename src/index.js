@@ -4,8 +4,22 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
-import store from './store/store';
 import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import reducers from './reducers'
+
+const store = configureStore({
+  reducer: reducers ,
+});
+store.dispatch({
+  type: 'SET_BLOGS',
+  payload: {
+    blogs: [{ id: 1, title: 'Blog 1', type: 1 }],
+    blogFeed: [{ blogId: 1 }],
+    blogFeed2: [],
+  },
+});
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

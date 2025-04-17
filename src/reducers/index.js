@@ -1,7 +1,8 @@
 import { combineReducers } from '@reduxjs/toolkit';
+import blogReducer from './blogReducer'
 
-const rootReducer = combineReducers({
-   // Add your reducers here when implemented
+const reducers = combineReducers({
+   blogs: blogReducer
 });
 
-export default rootReducer;
+export default reducers;

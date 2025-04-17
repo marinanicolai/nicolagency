@@ -19,6 +19,7 @@ function App() {
             <Route path='/about' element={<AboutPage />} />
             <Route path='/projects' element={<ProjectsPage />} />
             <Route path='/blogs/:id' element={<BlogPage />} />
+            <Route path='/blogs/categories/:id' element={<BlogPage />} />
             <Route path='/contact' element={<ContactPage />} />
          </Routes>
           <ScrollToTopButton />
