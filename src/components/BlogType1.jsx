@@ -47,11 +47,15 @@ function BlogType1({ data, myArea }) {
                <div
                   className={`${styles.slideContent} ${
                      noOverlayContent ? styles.noOverlayContent : ''
-                  } ${visual ? styles.visual : ''}`}
-               >
+                  } ${visual ? styles.visual : ''}`}  >
                   <div className={styles.content}>
                      <p className={styles.date}>{data.date}</p>
-                     <h4 className={styles.title}>{data.title}</h4>
+                     <h4
+                       className={`${styles.title} ${
+                       [4, 5, 6].includes(data.id) ? styles.highlightDarkBlue : ''
+                   }`} >
+                {data.title}
+                      </h4>
                   </div>
                   <div className={styles.author}>
                      <img src={data.avatar} alt='avatar' />

@@ -1,8 +1,15 @@
+:root {
+    --textColor: #fefefe; 
+  }
+
 .blogType1 {
     position: relative;
     width: 100%;
     padding-top: 50%;
  
+.highlightDarkBlue {
+  color: var(--textColor); 
+}    
     // mobile medium
     @media (max-width: 548px) {
        padding-top: 100%;
@@ -53,6 +60,7 @@
        }
  
        & > .slideContent {
+         padding: 10px 12px;
           bottom: 50% !important;
           transform: translateY(50%) !important;
  
@@ -183,15 +191,17 @@
              }
  
              & > .desc {
-                position: absolute;
-                bottom: -21px;
-                font-size: 16px;
-                font-family: 'Source Sans Pro', sans-serif;
-                line-height: 21px;
-                color: #fff;
-                transition: 0.3s ease-in-out 0.05s;
-                // background: blue;
+               position: relative;
+               margin-top: 8px;
+               font-size: 14px;
+               line-height: 20px;
+               color: #fff;
+               text-align: center;
+               bottom: 50% !important;
+               transform: translateY(50%) !important;
+
              }
+             
           }
        }
     }
