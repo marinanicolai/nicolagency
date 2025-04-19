@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { memo } from 'react'
+import WelcomeBannerLight from '../components/WelcomeBannerLight';
+import aboutBanner2 from '../assets/images/api.jpg';
 
 const AboutPage = () => {
   return (
-    <div>
-      <p>about</p>
+   <div>
+            <WelcomeBannerLight
+            title='About Us'
+            subTitle='We build fast and beautiful websites'
+            background={aboutBanner2} />
     </div>
-  )
+  );
 }
 
-export default AboutPage
+export default memo(AboutPage);

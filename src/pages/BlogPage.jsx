@@ -1,14 +1,16 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, {memo} from 'react'
+import WelcomeBannerLight from '../components/WelcomeBannerLight';
+import aboutBanner2 from '../assets/images/api.jpg';
 
 const BlogPage = () => {
-  const message = useSelector((state) => state.sample.message);
   return (
-    <div>
-      <p>this is the blogpage</p>
-      <p>{message}</p>
+   <div>
+            <WelcomeBannerLight
+            title='Blog'
+            subTitle='Latest news and updates'
+            background={aboutBanner2} />
     </div>
-  )
+  );
 }
 
-export default BlogPage
+export default memo(BlogPage);

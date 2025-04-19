@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import WelcomeBanner from '../components/WelcomeBannner';
+import WelcomeBanner from '../components/WelcomeBanner';
 import BlogFeed from '../components/BlogFeed';
 import ServiceSection from '../components/ServiceSection';
 import About from '../components/About';

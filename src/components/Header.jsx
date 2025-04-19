@@ -138,6 +138,10 @@ function Header() {
           <div className={styles.navItem}>
             <NavLink to="/" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>Home</NavLink>
           </div>
+          {/* CLIENTS */}
+          <div className={styles.navItem}>
+            <NavLink to="/clients" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>Clients</NavLink>
+          </div>
 
           {/* ABOUT */}
           <div className={styles.navItem} onMouseOver={handleShowMenuPanel1} onMouseLeave={handleHideMenuPanel1}>
@@ -152,23 +156,14 @@ function Header() {
           <div className={styles.navItem} onMouseOver={handleShowMenuPanel2} onMouseLeave={handleHideMenuPanel2}>
             <NavLink to="/services" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>Services</NavLink>
             <div className={styles.menuPanel} ref={menuPanelRef2}>
-              <NavLink to="/website" className={styles.menuPanelItem}>Building Website</NavLink>
-              <NavLink to="/website" className={styles.menuPanelItem}>Editing an Existing Website</NavLink>
+              <NavLink to="/webbuild" className={styles.menuPanelItem}>Building Website</NavLink>
+              <NavLink to="/webedit" className={styles.menuPanelItem}>Editing an Existing Website</NavLink>
               <NavLink to="/design" className={styles.menuPanelItem}>Designing Website</NavLink>
               <NavLink to="/content" className={styles.menuPanelItem}>Creating Social Media Content</NavLink>
             </div>
           </div>
 
-          {/* BLOG */}
-          <div className={styles.navItem} onMouseOver={handleShowMenuPanel3} onMouseLeave={handleHideMenuPanel3}>
-            <NavLink to="/blog" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>Blog</NavLink>
-            <div className={styles.menuPanel} ref={menuPanelRef3}>
-              <NavLink to="/news" className={styles.menuPanelItem}>News</NavLink>
-              <NavLink to="/articles" className={styles.menuPanelItem}>Articles</NavLink>
-              <NavLink to="/guides" className={styles.menuPanelItem}>Guides</NavLink>
-            </div>
-          </div>
-
+          
           {/* CONTACT */}
           <div className={styles.navItem}>
             <NavLink to="/contact" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>Contact</NavLink>

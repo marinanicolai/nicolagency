@@ -2,15 +2,15 @@ import React, {memo} from 'react'
 import WelcomeBannerLight from '../components/WelcomeBannerLight';
 import aboutBanner2 from '../assets/images/api.jpg';
 
-const ContactPage = () => {
+const ServicesPage = () => {
   return (
    <div>
             <WelcomeBannerLight
-            title='About Us'
-            subTitle='We build fast and beautiful websites'
+            title='Services we offer'
+            subTitle='We offer a wide range of services'
             background={aboutBanner2} />
     </div>
   );
 }
 
-export default memo(ContactPage);
+export default memo(ServicesPage);
