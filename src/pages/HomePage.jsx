@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import WelcomeBanner from '../components/WelcomeBannner';
 import BlogFeed from '../components/BlogFeed';
-import TopCategories from '../components/TopCategories';
+import ServiceSection from '../components/ServiceSection';
 import OurAbout from '../components/OurAbout';
 import EditorPickedNews from '../components/EditorPickedNews';
 import FeaturedAuthors from '../components/FeaturedAuthors';
@@ -12,7 +12,7 @@ function HomePage() {
       <div>
          <WelcomeBanner />
          <BlogFeed />
-         <TopCategories />
+         <ServiceSection />
          <OurAbout
             title="Our Stories"
             backgroundTitle="Blog"

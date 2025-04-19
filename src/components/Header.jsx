@@ -153,6 +153,7 @@ function Header() {
             <NavLink to="/services" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>Services</NavLink>
             <div className={styles.menuPanel} ref={menuPanelRef2}>
               <NavLink to="/website" className={styles.menuPanelItem}>Building Website</NavLink>
+              <NavLink to="/website" className={styles.menuPanelItem}>Editing an Existing Website</NavLink>
               <NavLink to="/design" className={styles.menuPanelItem}>Designing Website</NavLink>
               <NavLink to="/content" className={styles.menuPanelItem}>Creating Social Media Content</NavLink>
             </div>

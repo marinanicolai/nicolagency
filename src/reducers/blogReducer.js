@@ -6,6 +6,8 @@ import blogThumb3 from "../assets/images/clone.jpg";
 import blogThumb4 from "../assets/images/deploy-free.jpg";
 import blogThumb5 from "../assets/images/hosting.jpg";
 import blogThumb6 from "../assets/images/basics.jpg";
+import blogThumb7 from "../assets/images/seo-resize.jpg";
+import blogThumb8 from "../assets/images/google-search.jpg";
 
 
 import authorAvt1 from '../assets/images/avatar_profile.png'
@@ -119,12 +121,27 @@ const initState = {
 },
 {
   id: 7,
-  image: blogThumb4,
+  image: blogThumb7,
   author: 'Marina Nicolai',
   avatar: authorAvt1,
   title: '',
-  desc: '«Sharing is the healthiest addiction»',
-  date: 'April 18, 2025',
+  desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  date: 'April 19, 2025',
+  createdAt: 1687195683881,
+  comments: 0,
+  categories: ['Marina Nicolai', ''],
+  likes: 0,
+  styles: {},
+  type: 1,
+},
+{
+  id: 8,
+  image: blogThumb8,
+  author: 'Marina Nicolai',
+  avatar: authorAvt1,
+  title: '',
+  desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  date: 'April 19, 2025',
   createdAt: 1687195683881,
   comments: 0,
   categories: ['Marina Nicolai', ''],
@@ -140,7 +157,9 @@ const initState = {
       { blogId: 4, type: 1, styles: { extraSmall: true, visual: true } },
       { blogId: 5, type: 1, styles: { extraSmall: true, visual: true } },
       { blogId: -99, type: 3 },
-      { blogId: 6, type: 1, styles: { extraSmall: true , visual: true} }
+      { blogId: 6, type: 1, styles: { extraSmall: true , visual: true} },
+      { blogId: 7, type: 2 },
+      { blogId: 8, type: 2 },
     ],
     blogFeed2: [],
   };

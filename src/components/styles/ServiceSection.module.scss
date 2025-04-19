@@ -1,0 +1,60 @@
+.TopCategories {
+    display: flex;
+    align-items: center;
+    padding: 245px 0 130px;
+ }
+ 
+ .categoriesWrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 24px;
+ }
+ 
+ .categoriesItem {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% / 4);
+    padding: 0 21px;
+    margin-bottom: 21px;
+    overflow: hidden;
+ 
+    opacity: 0; // for appear
+ 
+    // tablet
+    @media (max-width: 990px) {
+       width: calc(100% / 3);
+    }
+ 
+    // mobile large
+    @media (max-width: 768px) {
+       width: 100%;
+    }
+ 
+    & > img {
+       display: block;
+       width: 100%;
+       height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+ }
+ 
+ .cateTitle {
+    padding: 5px 0;
+    text-align: center;
+ 
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 25px;
+    color: var(--secondary);
+    background: #fff;
+ }
+ 
+ .buttonWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 110px;
+    opacity: 0; // for appear
+ }
+ 

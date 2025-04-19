@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import styles from './styles/App.module.scss'
+import styles from './components/styles/App.module.scss'
 import Header from './components/Header'
 import ScrollToTopButton from './components/ScrollToTopButton'
 import Footer from './components/Footer'
