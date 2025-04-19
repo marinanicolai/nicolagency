@@ -71,7 +71,7 @@ function ServiceSection({ style }) {
 
    return (
       <section
-         className={styles.TopCategories}
+         className={styles.ServiceSection}
          style={{ background: `url(${servicesBG}) no-repeat center / cover`, ...style }}
       >
          <div className={`${styles.container} container`}>
