@@ -146,20 +146,16 @@ function Header() {
           {/* ABOUT */}
           <div className={styles.navItem} onMouseOver={handleShowMenuPanel1} onMouseLeave={handleHideMenuPanel1}>
             <NavLink to="/about" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>About</NavLink>
-            <div className={styles.menuPanel} ref={menuPanelRef1}>
-              <NavLink to="/about" className={styles.menuPanelItem}>About Us</NavLink>
-              <NavLink to="/team" className={styles.menuPanelItem}>Our Team</NavLink>
-            </div>
           </div>
 
           {/* SERVICES */}
           <div className={styles.navItem} onMouseOver={handleShowMenuPanel2} onMouseLeave={handleHideMenuPanel2}>
             <NavLink to="/services" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>Services</NavLink>
             <div className={styles.menuPanel} ref={menuPanelRef2}>
-              <NavLink to="/webbuild" className={styles.menuPanelItem}>Building Website</NavLink>
-              <NavLink to="/webedit" className={styles.menuPanelItem}>Editing an Existing Website</NavLink>
-              <NavLink to="/design" className={styles.menuPanelItem}>Designing Website</NavLink>
-              <NavLink to="/content" className={styles.menuPanelItem}>Creating Social Media Content</NavLink>
+              <NavLink to="/services/webbuild" className={styles.menuPanelItem}>Building Website</NavLink>
+              <NavLink to="/services/webedit" className={styles.menuPanelItem}>Editing an Existing Website</NavLink>
+              <NavLink to="/services/design" className={styles.menuPanelItem}>Designing Website</NavLink>
+              <NavLink to="/services/content" className={styles.menuPanelItem}>Creating Social Media Content</NavLink>
             </div>
           </div>
 

@@ -7,7 +7,7 @@ import Clients from '../components/Clients';
 
 import authorReviewThumb1 from '../assets/images/api.jpg'
 import authorReviewThumb2 from '../assets/images/api.jpg'
-import authorAvt2 from '../assets/images/api.jpg'
+import authorAvt2 from '../assets/images/profile-photo.jpeg'
 import authorAvt3 from '../assets/images/api.jpg'
 
 const moduleData = [
@@ -19,22 +19,10 @@ const moduleData = [
       type: 'author',
       avatar: authorAvt2,
       name: 'Marina Nicolai',
-      title: `The best way to predict the\nfuture is to invent it.`,
-      date: '19 April 2025',
-      desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore',
-   },
-   {
-      type: 'author',
-      avatar: authorAvt3,
-      name: 'Marina Nicolai',
-      title: `The best way to predict the\nfuture is to invent it.`,
-      date: '19 April 2025',
-      desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore',
-   },
-   {
-      type: 'thumbnail',
-      source: authorReviewThumb2,
-   },
+      title: `Predict the name of African Violet flowers`,
+      date: '24 May 2025',
+      desc: 'Find out how to predict the name of African Violet flowers using machine learning and deep learning techniques.',
+   }
 ]
 
 function HomePage() {
