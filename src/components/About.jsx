@@ -90,13 +90,11 @@ function About({ title, backgroundTitle, content, noBtn }) {
                   </div>
 
                   <p className={styles.text}>
-                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                     exercitation ullamco nisi ut aliquip ex ea
+                  From concept to deployment, we build responsive React-based websites tailored to client goals — fast, accessible, and user-friendly.
                   </p>
 
                   {noBtn || (
-                     <Link to='/categories/lifestyle' className={styles.btn}>
+                     <Link to='/categories/develop' className={styles.btn}>
                         READ MORE
                      </Link>
                   )}
@@ -107,13 +105,11 @@ function About({ title, backgroundTitle, content, noBtn }) {
                   </div>
 
                   <p className={styles.text}>
-                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                     exercitation ullamco nisi ut aliquip ex ea
+                  We integrate AI-ready structures such as real-time analytics, chatbot components, and intelligent content layout engines, paving the way for future automation and personalization.
                   </p>
 
                   {noBtn || (
-                     <Link to='/categories/travel' className={styles.btn}>
+                     <Link to='/categories/ai' className={styles.btn}>
                         READ MORE
                      </Link>
                   )}
@@ -124,13 +120,11 @@ function About({ title, backgroundTitle, content, noBtn }) {
                   </div>
 
                   <p className={styles.text}>
-                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                     exercitation ullamco nisi ut aliquip ex ea
+                  Our custom CMS integration empowers clients to manage their websites easily, while dynamic content strategies help boost user engagement and SEO.
                   </p>
 
                   {noBtn || (
-                     <Link to='/categories/adventure' className={styles.btn}>
+                     <Link to='/categories/seo' className={styles.btn}>
                         READ MORE
                      </Link>
                   )}

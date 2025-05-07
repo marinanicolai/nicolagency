@@ -46,8 +46,8 @@ function HomePage() {
          <About
             title="My Stories"
             backgroundTitle="Blog"
-            content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-            noBtn={false}
+            content="At Nicolagency, we turn ideas into beautiful, scalable digital experiences. This project showcases how we blend design, development, and emerging tech to meet client needs."
+           noBtn={false}
          />
          <Clients heading='Clients' data={moduleData} />
       </div>
