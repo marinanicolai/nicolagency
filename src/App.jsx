@@ -10,6 +10,7 @@ import AboutPage from './pages/AboutPage'
 import ProjectsPage from './pages/ProjectsPage'
 import BlogPage from './pages/BlogPage'
 import ContactPage from './pages/ContactPage'
+import CategoryPage from './pages/CategoryPage'
 
 function App() {
    return (
@@ -25,6 +26,7 @@ function App() {
             <Route path='/blogs/:id' element={<BlogPage />} />
             <Route path='/blogs/categories/:id' element={<BlogPage />} />
             <Route path='/contact' element={<ContactPage />} />
+            <Route path='/categories/:categoryName' element={<CategoryPage />} />
          </Routes>
           <ScrollToTopButton />
          <Footer />
