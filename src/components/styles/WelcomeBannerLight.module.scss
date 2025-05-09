@@ -18,35 +18,20 @@
  }
  
  .title {
-    font-size: 185px;
-    font-weight: 100;
-    font-family: 'Maulidah Script', sans-serif;
-    line-height: 60px;
-    letter-spacing: 0.05em;
-    color: #fff;
-    text-align: center;
- 
-    // background: bisque;
- 
-    // pc
-    @media (max-width: 1200px) {
-       font-size: 90px;
-    }
+   font-size: 70px;
+   line-height: 1.2;
+   margin: 0;
+   @media (max-width: 1200px) {
+     font-size: 50px;
+   }
  }
  
  .subTitle {
-    font-size: 24px;
-    font-weight: 300;
-    font-family: 'Source Sans Pro', sans-serif;
-    line-height: 37px;
-    text-align: center;
-    color: #fff;
-    margin-top: 90px;
-    // background: #000;
- 
-    // pc
-    @media (max-width: 1200px) {
-       margin-top: 30px;
-    }
+   font-size: 18px;
+   margin-top: 1rem;
+   @media (max-width: 1200px) {
+     font-size: 16px;
+   }
  }
+ 
  
