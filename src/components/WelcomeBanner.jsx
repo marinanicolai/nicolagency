@@ -1,7 +1,7 @@
 import React, { memo, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import buildingBanner1 from '../assets/images/welcomeBanner1.jpg';
+import buildingBanner1 from '../assets/images/website-bg.png';
 import buildingBanner2 from '../assets/images/welcomeBanner2.jpg';
 import buildingBanner3 from '../assets/images/welcomeBanner3.jpg';
 import buildingBanner4 from '../assets/images/welcomeBanner4.jpg';
@@ -36,12 +36,12 @@ function WelcomeBanner() {
 
    return (
       <section className={styles.WelcomeBanner}>
-         <button className={`${styles.slideBtn} ${styles.prevBtn}`} onClick={prevSlide}>
+         {/* <button className={`${styles.slideBtn} ${styles.prevBtn}`} onClick={prevSlide}>
             <FontAwesomeIcon icon={faChevronLeft} />
          </button>
          <button className={`${styles.slideBtn} ${styles.nextBtn}`} onClick={nextSlide}>
             <FontAwesomeIcon icon={faChevronRight} />
-         </button>
+         </button> */}
 
          <div className={styles.slideNav}>
             {[1, 2, 3, 4].map((item) => (
@@ -71,7 +71,7 @@ function WelcomeBanner() {
             </div>
          </div>
 
-         <div
+         {/* <div
             className={`${styles.slide} ${slide === 2 ? styles.active : ''}`}
             style={{ background: `url(${buildingBanner2}) no-repeat center / cover` }}
          >
@@ -91,9 +91,9 @@ function WelcomeBanner() {
                   DISCOVER PROJECT
                </Link>
             </div>
-         </div>
+         </div> */}
 
-         <div
+         {/* <div
             className={`${styles.slide} ${slide === 3 ? styles.active : ''}`}
             style={{ background: `url(${buildingBanner3}) no-repeat center / cover` }}
          >
@@ -115,8 +115,8 @@ function WelcomeBanner() {
                   LEARN MORE
                </Link>
             </div>
-         </div>
-         <div
+         </div> */}
+         {/* <div
             className={`${styles.slide} ${slide === 4 ? styles.active : ''}`}
             style={{ background: `url(${buildingBanner4}) no-repeat center / cover` }}
          >
@@ -143,7 +143,7 @@ function WelcomeBanner() {
                   EXPLORE PROJECT
                </Link>
             </div>
-         </div>
+         </div> */}
       </section>
    );
 }

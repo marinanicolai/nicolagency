@@ -28,6 +28,7 @@ function App() {
             <Route path='/blogs/categories/:id' element={<BlogPage />} />
             <Route path='/contact' element={<ContactPage />} />
             <Route path='/categories/:categoryName' element={<CategoryPage />} />
+            <Route path='/projects/:projectName' element={<ProjectsPage />} />
          </Routes>
           <ScrollToTopButton />
          <Footer />

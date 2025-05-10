@@ -1,8 +1,8 @@
 import React, { memo, useCallback, useEffect, useRef } from 'react'
 import SeparatorTitle from './SeparatorTitle'
-import styles from '../components/styles/Clients.module.scss'
+import styles from '../components/styles/Projects.module.scss'
 
-function Clients({ heading, data }) {
+function Projects({ heading, data }) {
    const containerRef = useRef(null)
    const progressWrapRef = useRef(null)
    const textBoxWrapRef = useRef(null)
@@ -94,7 +94,7 @@ function Clients({ heading, data }) {
    }, [handleScroll])
 
    return (
-      <section className={styles.Clients}>
+      <section className={styles.Projects}>
          {heading && <SeparatorTitle title={heading} dark style={{ margin: '80px 0 65px' }} />}
 
          <div className={styles.container} ref={containerRef}>
@@ -110,20 +110,32 @@ function Clients({ heading, data }) {
                         </div>
                      )
 
-                  case 'author':
-                     return (
-                        <div className={styles.item} key={index}>
-                           <div className={styles.authorContent}>
-                              <div className={styles.avatar}>
-                                 <img src={datum.avatar} alt='avatar' />
+                     case 'author':
+                        return (
+                           <div className={styles.item} key={index}>
+                              <div className={styles.authorContent}>
+                                 <div className={styles.avatar}>
+                                    <img src={datum.avatar} alt='avatar' />
+                                 </div>
+                                 <h6 className={styles.name}>{datum.name}</h6>
+                                 <h2 className={styles.title}>{datum.title}</h2>
+                                 <h4 className={styles.date}>{datum.date}</h4>
+                                 <p className={styles.desc}>{datum.desc}</p>
+                     
+                                 {datum.technologies && (
+                                    <div className={styles.techList}>
+                                       <h5 className={styles.techTitle}>Technologies Used:</h5>
+                                       <ul className={styles.techItems}>
+                                          {datum.technologies.map((tech, i) => (
+                                             <li key={i}>{tech}</li>
+                                          ))}
+                                       </ul>
+                                    </div>
+                                 )}
                               </div>
-                              <h6 className={styles.name}>{datum.name}</h6>
-                              <h2 className={styles.title}>{datum.title}</h2>
-                              <h4 className={styles.date}>{datum.date}</h4>
-                              <p className={styles.desc}>{datum.desc}</p>
                            </div>
-                        </div>
-                     )
+                        )
+                     
 
                   case 'category':
                      return (
@@ -201,4 +213,4 @@ function Clients({ heading, data }) {
    )
 }
 
-export default memo(Clients)
+export default memo(Projects)

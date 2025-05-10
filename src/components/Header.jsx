@@ -140,7 +140,7 @@ function Header() {
           </div>
           {/* CLIENTS */}
           <div className={styles.navItem}>
-            <NavLink to="/clients" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>Clients</NavLink>
+            <NavLink to="/projects" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>Projects</NavLink>
           </div>
 
           {/* ABOUT */}

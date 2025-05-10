@@ -1,4 +1,4 @@
-.Clients {
+.Projects {
     overflow: hidden;
  }
  
@@ -381,5 +381,35 @@
           }
        }
     }
+ }
+ 
+ .techList {
+   margin-top: 25px;
+   text-align: center;
+ 
+   .techTitle {
+     font-size: 18px;
+     font-weight: 600;
+     color: var(--secondary);
+     margin-bottom: 10px;
+   }
+ 
+   .techItems {
+     list-style: none;
+     padding: 0;
+     display: inline-flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 10px;
+ 
+     li {
+       font-size: 14px;
+       background-color: #eef4f7;
+       color: #333;
+       padding: 6px 12px;
+       border-radius: 20px;
+       font-family: 'Source Sans Pro', sans-serif;
+     }
+   }
  }
  
