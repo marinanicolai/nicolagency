@@ -1,7 +1,7 @@
 import React, { memo, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import buildingBanner1 from '../assets/images/web-back-2-sm.jpg';
+import buildingBanner1 from '../assets/images/banner-final.jpg';
 import buildingBanner2 from '../assets/images/welcomeBanner2.jpg';
 import buildingBanner3 from '../assets/images/welcomeBanner3.jpg';
 import buildingBanner4 from '../assets/images/welcomeBanner4.jpg';
