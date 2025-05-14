@@ -107,7 +107,10 @@
        background: #000;
        position: absolute;
        top: 20%; 
-       left: 83%;
+       right: 5%;
+       left: unset;
+       top: 10%;
+
        transform: translate(-50%, -50%);
        border-radius: 5px;
        font-size: 14px;
